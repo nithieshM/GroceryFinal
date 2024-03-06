@@ -1,0 +1,62 @@
+﻿@using GroceryFinal.Model
+@model Product
+
+<form method="post">
+    <input asp-for="ProductId" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Product</h2>
+            </hr>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="ProductName" class="p-0"></label>
+            <input asp-for="ProductName" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="UOM" class="p-0"></label>
+            <input asp-for="UOM" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="PurchaseRate" class="p-0"></label>
+            <input asp-for="PurchaseRate" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="SellingRate" class="p-0"></label>
+            <input asp-for="SellingRate" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Stock" class="p-0"></label>
+            <input asp-for="Stock" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="PurchaseStock" class="p-0"></label>
+            <input asp-for="PurchaseStock" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="SellingStock" class="p-0"></label>
+            <input asp-for="SellingStock" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="ReorderLevel" class="p-0"></label>
+            <input asp-for="ReorderLevel" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Quantity" class="p-0"></label>
+            <input asp-for="Quantity" disabled class="form-control" />
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-danger form-control">Delete</button>
+
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                    Cancel
+                </a>
+            </div>
+        </div>
+
+    </div>
+</form>
+
