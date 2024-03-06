@@ -14,6 +14,7 @@ namespace GroceryFinal.DataAccess.Repository
         public ICustomerDetailsRepository CustomerDetailsRepository { get; private set; }
         public ISupplierRepository SupplierRepository { get; private set; }
         public IProductRepository ProductRepository { get; private set; }
+        public IUOMRepository UOMRepository { get; private set; }
 
         public UnitOfWork(ApplicationDbContext db)
         {
@@ -21,6 +22,7 @@ namespace GroceryFinal.DataAccess.Repository
             CustomerDetailsRepository = new CustomerDetailsRepository(_db);
             SupplierRepository = new SupplierRepository(_db);
             ProductRepository = new ProductRepository(_db);
+            UOMRepository = new UOMRepository(_db);
         }
 
         public void Save()
