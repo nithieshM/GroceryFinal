@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace GroceryFinal.Model
 {
@@ -46,5 +47,10 @@ namespace GroceryFinal.Model
         [Required(ErrorMessage = "Quantity Required")]
         [DisplayName("Quantity")]
         public double Quantity { get; set; }
+
+        public int SupplierId { get; set; }
+        [ForeignKey("SupplierId")]
+        [ValidateNever]
+        public Supplier Supplier { get; set; }
     }
 }
