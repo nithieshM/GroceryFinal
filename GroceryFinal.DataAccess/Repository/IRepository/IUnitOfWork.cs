@@ -1,5 +1,4 @@
-﻿using GroceryApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace GroceryFinal.DataAccess.Repository.IRepository
 {
-    public interface ICustomerDetailsRepository : IRepository<CustomerDetails>
+    public interface IUnitOfWork
     {
-        void Update(CustomerDetails obj);
+        ICustomerDetailsRepository CustomerDetailsRepository { get; }
+
+        void Save();
     }
 }
