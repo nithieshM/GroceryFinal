@@ -3,7 +3,9 @@ using GroceryApp.Models;
 using GroceryFinal.DataAccess.Repository;
 using GroceryFinal.DataAccess.Repository.IRepository;
 using GroceryFinal.Model;
+using GroceryFinal.Model.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GroceryFinal.Controllers
 {
@@ -16,56 +18,62 @@ namespace GroceryFinal.Controllers
         }
         public IActionResult Index()
         {
-            var objCustomerList = _productRepo.ProductRepository.GetAll().ToList();
+            var objCustomerList = _productRepo.ProductRepository.GetAll(includeProperties:"Supplier").ToList();
             return View(objCustomerList);
         }
 
-        public IActionResult Create()
+        public IActionResult Upsert(int? id)
         {
-            return View();
+
+            ProductVM productVM = new()
+            {
+                SupplierList = _productRepo.SupplierRepository.GetAll().Select(u => new SelectListItem
+                {
+                    Text = $"{u.SupplierId} - {u.SupplierName}",
+                    Value = u.SupplierId.ToString()
+                }),
+                Product = new Product()
+            };
+            if(id == null || id == 0)
+            {//create
+                return View(productVM);
+            }
+            else
+            {//update
+                productVM.Product = _productRepo.ProductRepository.Get(u => u.ProductId == id);
+                return View(productVM);
+            }
         }
 
         [HttpPost]
-        public IActionResult Create(Product obj)
+        public IActionResult Upsert(ProductVM obj)
         {
             if(ModelState.IsValid)
             {
-                _productRepo.ProductRepository.Add(obj);
+                if(obj.Product.ProductId == 0)
+                {
+                    _productRepo.ProductRepository.Add(obj.Product);
+                }
+                else
+                {
+                    _productRepo.ProductRepository.Update(obj.Product);
+                }
+                
                 _productRepo.Save();
-                TempData["success"] = "Customer Created Successfully!";
-
-            }
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult Edit(int? id)
-        {
-            if(id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            Product? ProductFromDb = _productRepo.ProductRepository.Get(u=>u.ProductId==id);
-
-            if(ProductFromDb == null)
-            {
-                return NotFound();
-            }
-
-            return View(ProductFromDb);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Product obj)
-        {
-            if (ModelState.IsValid)
-            {
-                _productRepo.ProductRepository.Update(obj);
-                _productRepo.Save();
-                TempData["success"] = "Customer Details Edited Successfully!";
+                TempData["success"] = "Product Created Successfully!";
                 return RedirectToAction("Index");
             }
-            return View();
+            else
+            {
+                obj.SupplierList = _productRepo.SupplierRepository.GetAll().Select(u => new SelectListItem
+                {
+                    Text = $"{u.SupplierId} - {u.SupplierName}",
+                    Value = u.SupplierId.ToString()
+                });
+                 
+                return View(obj);
+            }   
+
         }
 
         public IActionResult Delete(int? id)
