@@ -15,6 +15,7 @@ namespace GroceryApp.DataAccess.Data
         public DbSet<CustomerDetails> CustomerDetailsTable { get; set; }
         public DbSet<Supplier> SupplierTable { get; set; }
         public DbSet<Product> ProductTable { get; set; }
+        public DbSet<UOM> UOMTable { get; set; }
        
     }
 }
