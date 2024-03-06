@@ -9,6 +9,7 @@ namespace GroceryFinal.DataAccess.Repository.IRepository
     public interface IUnitOfWork
     {
         ICustomerDetailsRepository CustomerDetailsRepository { get; }
+        ISupplierRepository SupplierRepository { get; }
 
         void Save();
     }

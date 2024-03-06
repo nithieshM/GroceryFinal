@@ -1,4 +1,5 @@
 ﻿using GroceryApp.Models;
+using GroceryFinal.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Reflection.Emit;
@@ -12,7 +13,7 @@ namespace GroceryApp.DataAccess.Data
         }
 
         public DbSet<CustomerDetails> CustomerDetailsTable { get; set; }
-       
+        public DbSet<Supplier> SupplierTable { get; set; }
        
     }
 }
