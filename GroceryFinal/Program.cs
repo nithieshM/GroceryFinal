@@ -1,4 +1,6 @@
 using GroceryApp.DataAccess.Data;
+using GroceryFinal.DataAccess.Repository;
+using GroceryFinal.DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 namespace GroceryFinal
@@ -13,6 +15,7 @@ namespace GroceryFinal
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<ICustomerDetailsRepository, CustomerDetailsRepository>();
 
             var app = builder.Build();
 
