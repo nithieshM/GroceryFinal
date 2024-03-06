@@ -13,12 +13,14 @@ namespace GroceryFinal.DataAccess.Repository
         private ApplicationDbContext _db;
         public ICustomerDetailsRepository CustomerDetailsRepository { get; private set; }
         public ISupplierRepository SupplierRepository { get; private set; }
+        public IProductRepository ProductRepository { get; private set; }
 
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
             CustomerDetailsRepository = new CustomerDetailsRepository(_db);
             SupplierRepository = new SupplierRepository(_db);
+            ProductRepository = new ProductRepository(_db);
         }
 
         public void Save()
