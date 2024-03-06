@@ -1,0 +1,72 @@
+﻿@using GroceryApp.Models
+@model CustomerDetails
+
+<form method="post">
+    <input asp-for="CustomerId" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Customer</h2>
+            </hr>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="CustomerName" class="p-0"></label>
+            <input asp-for="CustomerName" class="form-control" />
+            <span asp-validation-for="CustomerName" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="CustomerAddress" class="p-0"></label>
+            <input asp-for="CustomerAddress" class="form-control" />
+            <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="CustomerAddress2" class="p-0"></label>
+            <input asp-for="CustomerAddress2" class="form-control" />
+            <span asp-validation-for="CustomerAddress2" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="CustomerCity" class="p-0"></label>
+            <input asp-for="CustomerCity" class="form-control" />
+            <span asp-validation-for="CustomerCity" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="CustomerState" class="p-0"></label>
+            <input asp-for="CustomerState" class="form-control" />
+            <span asp-validation-for="CustomerState" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="CustomerZipCode" class="p-0"></label>
+            <input asp-for="CustomerZipCode" class="form-control" />
+            <span asp-validation-for="CustomerZipCode" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="CustomerPhone" class="p-0"></label>
+            <input asp-for="CustomerPhone" class="form-control" />
+            <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="CustomerEmail" class="p-0"></label>
+            <input asp-for="CustomerEmail" class="form-control" />
+            <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-primary form-control">Edit</button>
+
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="CustomerDetails" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                    Cancel
+                </a>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
