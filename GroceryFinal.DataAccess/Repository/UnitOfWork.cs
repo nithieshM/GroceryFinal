@@ -1,26 +1,27 @@
 ﻿using GroceryApp.DataAccess.Data;
-using GroceryApp.Models;
 using GroceryFinal.DataAccess.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GroceryFinal.DataAccess.Repository
 {
-    public class CustomerDetailsRepository : Repository<CustomerDetails>, ICustomerDetailsRepository
+    public class UnitOfWork : IUnitOfWork
     {
         private ApplicationDbContext _db;
-        public CustomerDetailsRepository(ApplicationDbContext db) : base(db)
+        public ICustomerDetailsRepository CustomerDetailsRepository { get; private set; }
+
+        public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
+            CustomerDetailsRepository = new CustomerDetailsRepository(_db);
         }
 
-        public void Update(CustomerDetails obj)
+        public void Save()
         {
-            _db.CustomerDetailsTable.Update(obj);
+            _db.SaveChanges();
         }
     }
 }

@@ -8,14 +8,14 @@ namespace GroceryFinal.Controllers
 {
     public class CustomerDetailsController : Controller
     {
-        private readonly ICustomerDetailsRepository _customerRepo;
-        public CustomerDetailsController(ICustomerDetailsRepository db)
+        private readonly IUnitOfWork _customerRepo;
+        public CustomerDetailsController(IUnitOfWork db)
         {
             _customerRepo = db;
         }
         public IActionResult Index()
         {
-            var objCustomerList = _customerRepo.GetAll().ToList();
+            var objCustomerList = _customerRepo.CustomerDetailsRepository.GetAll().ToList();
             return View(objCustomerList);
         }
 
@@ -29,7 +29,7 @@ namespace GroceryFinal.Controllers
         {
             if(ModelState.IsValid)
             {
-                _customerRepo.Add(obj);
+                _customerRepo.CustomerDetailsRepository.Add(obj);
                 _customerRepo.Save();
                 TempData["success"] = "Customer Created Successfully!";
 
@@ -44,7 +44,7 @@ namespace GroceryFinal.Controllers
                 return NotFound();
             }
 
-            CustomerDetails? customerDetailsFromDb = _customerRepo.Get(u=>u.CustomerId==id);
+            CustomerDetails? customerDetailsFromDb = _customerRepo.CustomerDetailsRepository.Get(u=>u.CustomerId==id);
 
             if(customerDetailsFromDb == null)
             {
@@ -59,7 +59,7 @@ namespace GroceryFinal.Controllers
         {
             if (ModelState.IsValid)
             {
-                _customerRepo.Update(obj);
+                _customerRepo.CustomerDetailsRepository.Update(obj);
                 _customerRepo.Save();
                 TempData["success"] = "Customer Details Edited Successfully!";
                 return RedirectToAction("Index");
@@ -74,7 +74,7 @@ namespace GroceryFinal.Controllers
                 return NotFound();
             }
 
-            CustomerDetails? customerDetailsFromDb = _customerRepo.Get(u => u.CustomerId == id);
+            CustomerDetails? customerDetailsFromDb = _customerRepo.CustomerDetailsRepository.Get(u => u.CustomerId == id);
 
             if (customerDetailsFromDb == null)
             {
@@ -87,13 +87,13 @@ namespace GroceryFinal.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePOST(int? id)
         {
-            CustomerDetails? obj = _customerRepo.Get(u => u.CustomerId == id);
+            CustomerDetails? obj = _customerRepo.CustomerDetailsRepository.Get(u => u.CustomerId == id);
 
             if (obj == null)
             {
                 return NotFound();
             }
-            _customerRepo.Remove(obj);
+            _customerRepo.CustomerDetailsRepository.Remove(obj);
             _customerRepo.Save();
             TempData["success"] = "Customer Deleted Successfully!";
             return RedirectToAction("Index");
