@@ -3,6 +3,7 @@ using GroceryApp.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GroceryFinal.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240307090104_AddStateTable")]
+    partial class AddStateTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,188 +130,6 @@ namespace GroceryFinal.DataAccess.Migrations
                     b.HasKey("StateId");
 
                     b.ToTable("StateTable");
-
-                    b.HasData(
-                        new
-                        {
-                            StateId = 1,
-                            StateName = "Andhra Pradesh"
-                        },
-                        new
-                        {
-                            StateId = 2,
-                            StateName = "Arunachal Pradesh"
-                        },
-                        new
-                        {
-                            StateId = 3,
-                            StateName = "Assam"
-                        },
-                        new
-                        {
-                            StateId = 4,
-                            StateName = "Bihar"
-                        },
-                        new
-                        {
-                            StateId = 5,
-                            StateName = "Chhattisgarh"
-                        },
-                        new
-                        {
-                            StateId = 6,
-                            StateName = "Goa"
-                        },
-                        new
-                        {
-                            StateId = 7,
-                            StateName = "Gujarat"
-                        },
-                        new
-                        {
-                            StateId = 8,
-                            StateName = "Haryana"
-                        },
-                        new
-                        {
-                            StateId = 9,
-                            StateName = "Himachal Pradesh"
-                        },
-                        new
-                        {
-                            StateId = 10,
-                            StateName = "Jharkhand"
-                        },
-                        new
-                        {
-                            StateId = 11,
-                            StateName = "Karnataka"
-                        },
-                        new
-                        {
-                            StateId = 12,
-                            StateName = "Kerala"
-                        },
-                        new
-                        {
-                            StateId = 13,
-                            StateName = "Madhya Pradesh"
-                        },
-                        new
-                        {
-                            StateId = 14,
-                            StateName = "Maharashtra"
-                        },
-                        new
-                        {
-                            StateId = 15,
-                            StateName = "Manipur"
-                        },
-                        new
-                        {
-                            StateId = 16,
-                            StateName = "Meghalaya"
-                        },
-                        new
-                        {
-                            StateId = 17,
-                            StateName = "Mizoram"
-                        },
-                        new
-                        {
-                            StateId = 18,
-                            StateName = "Nagaland"
-                        },
-                        new
-                        {
-                            StateId = 19,
-                            StateName = "Odisha"
-                        },
-                        new
-                        {
-                            StateId = 20,
-                            StateName = "Punjab"
-                        },
-                        new
-                        {
-                            StateId = 21,
-                            StateName = "Rajasthan"
-                        },
-                        new
-                        {
-                            StateId = 22,
-                            StateName = "Sikkim"
-                        },
-                        new
-                        {
-                            StateId = 23,
-                            StateName = "Tamil Nadu"
-                        },
-                        new
-                        {
-                            StateId = 24,
-                            StateName = "Telangana"
-                        },
-                        new
-                        {
-                            StateId = 25,
-                            StateName = "Tripura"
-                        },
-                        new
-                        {
-                            StateId = 26,
-                            StateName = "Uttarakhand"
-                        },
-                        new
-                        {
-                            StateId = 27,
-                            StateName = "Uttar Pradesh"
-                        },
-                        new
-                        {
-                            StateId = 28,
-                            StateName = "West Bengal"
-                        },
-                        new
-                        {
-                            StateId = 29,
-                            StateName = "Andaman and Nicobar Islands"
-                        },
-                        new
-                        {
-                            StateId = 30,
-                            StateName = "Chandigarh"
-                        },
-                        new
-                        {
-                            StateId = 31,
-                            StateName = "Dadra and Nagar Haveli and Daman and Diu"
-                        },
-                        new
-                        {
-                            StateId = 32,
-                            StateName = "Delhi"
-                        },
-                        new
-                        {
-                            StateId = 33,
-                            StateName = "Jammu and Kashmir"
-                        },
-                        new
-                        {
-                            StateId = 34,
-                            StateName = "Ladakh"
-                        },
-                        new
-                        {
-                            StateId = 35,
-                            StateName = "Lakshadweep"
-                        },
-                        new
-                        {
-                            StateId = 36,
-                            StateName = "Puducherry"
-                        });
                 });
 
             modelBuilder.Entity("GroceryFinal.Model.Supplier", b =>
