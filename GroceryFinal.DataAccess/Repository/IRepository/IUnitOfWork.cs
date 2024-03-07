@@ -12,6 +12,7 @@ namespace GroceryFinal.DataAccess.Repository.IRepository
         ISupplierRepository SupplierRepository { get; }
         IProductRepository ProductRepository { get; }
         IUOMRepository UOMRepository { get; }
+        IStateRepository StateRepository { get; }
 
         void Save();
     }

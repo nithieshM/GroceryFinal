@@ -1,0 +1,35 @@
+﻿@using GroceryFinal.Model
+@model List<State>
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                State Details
+            </h2>
+        </div>
+    </div>
+
+<table class="table table-bordered table-striped text-center">
+    <thead>
+    <tr>
+        <th>
+            State Id
+        </th>
+        <th>
+            State Name
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td>@obj.StateId</td>
+                <td>@obj.StateName</td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
+</div>
