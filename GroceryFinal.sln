@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryFinal", "GroceryFinal\GroceryFinal.csproj", "{94ED7E37-854A-4872-8FE4-C2762FCE50CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryFinal", "GroceryFinal\GroceryFinal.csproj", "{94ED7E37-854A-4872-8FE4-C2762FCE50CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryFinal.Model", "GroceryFinal.Model\GroceryFinal.Model.csproj", "{CB6EB8C1-BA62-4659-B470-126CDCED2051}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryFinal.Model", "GroceryFinal.Model\GroceryFinal.Model.csproj", "{CB6EB8C1-BA62-4659-B470-126CDCED2051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryFinal.DataAccess", "GroceryFinal.DataAccess\GroceryFinal.DataAccess.csproj", "{85A20B8A-ECC7-401C-9832-74AD958CA1E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryFinal.DataAccess", "GroceryFinal.DataAccess\GroceryFinal.DataAccess.csproj", "{85A20B8A-ECC7-401C-9832-74AD958CA1E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryFinal.Utility", "GroceryFinal.Utility\GroceryFinal.Utility.csproj", "{02E9EE6E-FB1D-4386-B9FB-9E12D8B61F1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{85A20B8A-ECC7-401C-9832-74AD958CA1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85A20B8A-ECC7-401C-9832-74AD958CA1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85A20B8A-ECC7-401C-9832-74AD958CA1E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02E9EE6E-FB1D-4386-B9FB-9E12D8B61F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02E9EE6E-FB1D-4386-B9FB-9E12D8B61F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02E9EE6E-FB1D-4386-B9FB-9E12D8B61F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02E9EE6E-FB1D-4386-B9FB-9E12D8B61F1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

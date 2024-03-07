@@ -1,12 +1,14 @@
 ﻿using GroceryApp.Models;
 using GroceryFinal.Model;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
 namespace GroceryApp.DataAccess.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -17,9 +19,12 @@ namespace GroceryApp.DataAccess.Data
         public DbSet<Product> ProductTable { get; set; }
         public DbSet<UOM> UOMTable { get; set; }
         public DbSet<State> StateTable { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<State>().HasData(
                 new State { StateId = 1, StateName = "Andhra Pradesh" },
                 new State { StateId = 2, StateName = "Arunachal Pradesh" },
