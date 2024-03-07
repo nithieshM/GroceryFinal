@@ -13,5 +13,7 @@ namespace GroceryFinal.Model.ViewModel
         public Product Product { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> SupplierList { get; set; }
+        [ValidateNever]
+        public IEnumerable<SelectListItem> UOMList { get; set; }
     }
 }

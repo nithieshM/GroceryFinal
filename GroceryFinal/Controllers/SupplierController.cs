@@ -32,7 +32,7 @@ namespace GroceryFinal.Controllers
             {
                 _supplierRepo.SupplierRepository.Add(obj);
                 _supplierRepo.Save();
-                TempData["success"] = "supplier Created Successfully!";
+                TempData["success"] = "Supplier Created Successfully!";
 
             }
             return RedirectToAction("Index");
@@ -62,7 +62,7 @@ namespace GroceryFinal.Controllers
             {
                 _supplierRepo.SupplierRepository.Update(obj);
                 _supplierRepo.Save();
-                TempData["success"] = "supplier Details Edited Successfully!";
+                TempData["success"] = "Supplier Details Edited Successfully!";
                 return RedirectToAction("Index");
             }
             return View();
@@ -96,7 +96,7 @@ namespace GroceryFinal.Controllers
             }
             _supplierRepo.SupplierRepository.Remove(obj);
             _supplierRepo.Save();
-            TempData["success"] = "supplier Deleted Successfully!";
+            TempData["success"] = "Supplier Deleted Successfully!";
             return RedirectToAction("Index");
         }
     }

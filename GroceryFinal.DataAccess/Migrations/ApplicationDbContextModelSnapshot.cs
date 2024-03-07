@@ -100,13 +100,14 @@ namespace GroceryFinal.DataAccess.Migrations
                     b.Property<int>("SupplierId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UOM")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UOMId")
+                        .HasColumnType("int");
 
                     b.HasKey("ProductId");
 
                     b.HasIndex("SupplierId");
+
+                    b.HasIndex("UOMId");
 
                     b.ToTable("ProductTable");
                 });
@@ -179,7 +180,15 @@ namespace GroceryFinal.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("GroceryFinal.Model.UOM", "UOM")
+                        .WithMany()
+                        .HasForeignKey("UOMId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Supplier");
+
+                    b.Navigation("UOM");
                 });
 #pragma warning restore 612, 618
         }

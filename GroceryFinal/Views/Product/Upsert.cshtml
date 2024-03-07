@@ -13,9 +13,11 @@
             <span asp-validation-for="Product.ProductName" class="text-danger"></span>
         </div>
         <div class="mb-3 row p-1">
-            <label asp-for="Product.UOM" class="p-0"></label>
-            <input asp-for="Product.UOM" class="form-control" />
-            <span asp-validation-for="Product.UOM" class="text-danger"></span>
+            <label asp-for="Product.UOMId" class="p-0"></label>
+            <select asp-for="Product.UOMId" asp-items="@Model.UOMList" class="form-select">
+                <option disabled selected>Select UOM</option>
+            </select>
+            <span asp-validation-for="Product.UOMId" class="text-danger"></span>
         </div>
         <div class="mb-3 row p-1">
             <label asp-for="Product.PurchaseRate" class="p-0"></label>
@@ -57,7 +59,7 @@
             <select asp-for="Product.SupplierId" asp-items="@Model.SupplierList" class="form-select">
                 <option disabled selected>Select Supplier</option>
             </select>
-            <span asp-validation-for="Product.Quantity" class="text-danger"></span>
+            <span asp-validation-for="Product.SupplierId" class="text-danger"></span>
         </div>
 
         <div class="row">

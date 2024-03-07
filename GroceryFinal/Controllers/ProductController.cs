@@ -18,7 +18,7 @@ namespace GroceryFinal.Controllers
         }
         public IActionResult Index()
         {
-            var objCustomerList = _productRepo.ProductRepository.GetAll(includeProperties:"Supplier").ToList();
+            var objCustomerList = _productRepo.ProductRepository.GetAll(includeProperties: new string[] { "Supplier", "UOM" }).ToList();
             return View(objCustomerList);
         }
 
@@ -31,6 +31,11 @@ namespace GroceryFinal.Controllers
                 {
                     Text = $"{u.SupplierId} - {u.SupplierName}",
                     Value = u.SupplierId.ToString()
+                }),
+                UOMList = _productRepo.UOMRepository.GetAll().Select(u => new SelectListItem 
+                {
+                    Text = $"{u.UOMId} - {u.UOMName}",
+                    Value = u.UOMId.ToString()
                 }),
                 Product = new Product()
             };
@@ -50,17 +55,20 @@ namespace GroceryFinal.Controllers
         {
             if(ModelState.IsValid)
             {
-                if(obj.Product.ProductId == 0)
+                TempData["success"] = "Product Created Successfully!";
+                if (obj.Product.ProductId == 0)
                 {
                     _productRepo.ProductRepository.Add(obj.Product);
+                    TempData["success"] = "Product Created Successfully!";
                 }
                 else
                 {
                     _productRepo.ProductRepository.Update(obj.Product);
+                    TempData["success"] = "Product Edited Sucessfully";
                 }
                 
                 _productRepo.Save();
-                TempData["success"] = "Product Created Successfully!";
+                
                 return RedirectToAction("Index");
             }
             else
@@ -70,7 +78,12 @@ namespace GroceryFinal.Controllers
                     Text = $"{u.SupplierId} - {u.SupplierName}",
                     Value = u.SupplierId.ToString()
                 });
-                 
+                obj.UOMList = _productRepo.UOMRepository.GetAll().Select(u => new SelectListItem
+                {
+                    Text = $"{u.UOMId} - {u.UOMName}",
+                    Value = u.UOMId.ToString()
+                });
+ 
                 return View(obj);
             }   
 
@@ -104,7 +117,7 @@ namespace GroceryFinal.Controllers
             }
             _productRepo.ProductRepository.Remove(obj);
             _productRepo.Save();
-            TempData["success"] = "Customer Deleted Successfully!";
+            TempData["success"] = "Product Deleted Successfully!";
             return RedirectToAction("Index");
         }
     }
