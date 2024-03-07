@@ -53,10 +53,10 @@
             <span asp-validation-for="Product.Quantity" class="text-danger"></span>
         </div>
         <div class="mb-3 row p-1">
-            <select asp-for="Product.SupplierId" asp-items="@Model.SupplierList"class="form-select border-0">
-            <option disabled selected>Select Supplier</option>
+            <label asp-for="Product.SupplierId" class="p-0"></label>
+            <select asp-for="Product.SupplierId" asp-items="@Model.SupplierList" class="form-select">
+                <option disabled selected>Select Supplier</option>
             </select>
-            <label asp-for="Product.SupplierId" class="ms-2"></label>
             <span asp-validation-for="Product.Quantity" class="text-danger"></span>
         </div>
 
