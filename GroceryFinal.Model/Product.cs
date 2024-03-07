@@ -18,10 +18,6 @@ namespace GroceryFinal.Model
         [DisplayName("Product Name")]
         public string ProductName { get; set; }
 
-        [Required(ErrorMessage = "UOM Required!")]
-        [DisplayName("UOM")]
-        [DataType(DataType.Currency)]
-        public string UOM { get; set; }
         [Required(ErrorMessage = "Purchase Rate Required")]
         [DisplayName("Purchase Rate")]
         [DataType(DataType.Currency)]
@@ -52,5 +48,11 @@ namespace GroceryFinal.Model
         [ForeignKey("SupplierId")]
         [ValidateNever]
         public Supplier Supplier { get; set; }
+
+        [Required(ErrorMessage = "UOM ID is required")]
+        public int UOMId { get; set; }
+        [ForeignKey("UOMId")]
+        [ValidateNever]
+        public UOM UOM { get; set; }
     }
 }
