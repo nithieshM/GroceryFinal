@@ -2,10 +2,13 @@
 using GroceryApp.Models;
 using GroceryFinal.DataAccess.Repository;
 using GroceryFinal.DataAccess.Repository.IRepository;
+using GroceryFinal.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GroceryFinal.Controllers
 {
+    [Authorize(Roles =SD.Role_Admin)]
     public class CustomerDetailsController : Controller
     {
         private readonly IUnitOfWork _customerRepo;
