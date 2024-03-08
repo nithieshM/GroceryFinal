@@ -1,58 +1,67 @@
 ﻿@using GroceryApp.Models
 @model CustomerDetails
 
-<form method="post">
-    <input asp-for="CustomerId" hidden />
-    <div class="border p-3 mt-4">
-        <div class="row pb-2">
-            <h2 class="text-primary">Delete Customer</h2>
-            </hr>
-        </div>
-        <div class="mb-3 row p-1">
-            <label asp-for="CustomerName" class="p-0"></label>
-            <input asp-for="CustomerName" disabled class="form-control" />
-        </div>
-        <div class="mb-3 row p-1">
-            <label asp-for="CustomerAddress" class="p-0"></label>
-            <input asp-for="CustomerAddress" disabled class="form-control" />
-        </div>
-        <div class="mb-3 row p-1">
-            <label asp-for="CustomerAddress2" class="p-0"></label>
-            <input asp-for="CustomerAddress2" disabled class="form-control" />
-        </div>
-        <div class="mb-3 row p-1">
-            <label asp-for="CustomerCity" class="p-0"></label>
-            <input asp-for="CustomerCity" disabled class="form-control" />
-        </div>
-        <div class="mb-3 row p-1">
-            <label asp-for="CustomerState" class="p-0"></label>
-            <input asp-for="CustomerState" disabled class="form-control" />
-        </div>
-        <div class="mb-3 row p-1">
-            <label asp-for="CustomerZipCode" class="p-0"></label>
-            <input asp-for="CustomerZipCode" disabled class="form-control" />
-        </div>
-        <div class="mb-3 row p-1">
-            <label asp-for="CustomerPhone" class="p-0"></label>
-            <input asp-for="CustomerPhone" disabled class="form-control" />
-        </div>
-        <div class="mb-3 row p-1">
-            <label asp-for="CustomerEmail" class="p-0"></label>
-            <input asp-for="CustomerEmail" disabled class="form-control" />
-        </div>
-
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gardient ml-0 py-3">
         <div class="row">
-            <div class="col-6 col-md-3">
-                <button type="submit" class="btn btn-danger form-control">Delete</button>
-
-            </div>
-            <div class="col-6 col-md-3">
-                <a asp-controller="CustomerDetails" asp-action="Index" class="btn btn-outline-secondary border form-control">
-                    Cancel
-                </a>
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Delete Customer</h2>
             </div>
         </div>
-
     </div>
-</form>
+    <div class="card-body p-4">
+        <form method="post">
+            <input asp-for="CustomerId" hidden />
+            <div class="border p-3 mt-4">
+                <div class="mb-3 row p-1">
+                    <label asp-for="CustomerName" class="p-0"></label>
+                    <input asp-for="CustomerName" disabled class="form-control" />
+                </div>
+                <div class="mb-3 row p-1">
+                    <label asp-for="CustomerAddress" class="p-0"></label>
+                    <input asp-for="CustomerAddress" disabled class="form-control" />
+                </div>
+                <div class="mb-3 row p-1">
+                    <label asp-for="CustomerAddress2" class="p-0"></label>
+                    <input asp-for="CustomerAddress2" disabled class="form-control" />
+                </div>
+                <div class="mb-3 row p-1">
+                    <label asp-for="CustomerCity" class="p-0"></label>
+                    <input asp-for="CustomerCity" disabled class="form-control" />
+                </div>
+                <div class="mb-3 row p-1">
+                    <label asp-for="CustomerState" class="p-0"></label>
+                    <input asp-for="CustomerState" disabled class="form-control" />
+                </div>
+                <div class="mb-3 row p-1">
+                    <label asp-for="CustomerZipCode" class="p-0"></label>
+                    <input asp-for="CustomerZipCode" disabled class="form-control" />
+                </div>
+                <div class="mb-3 row p-1">
+                    <label asp-for="CustomerPhone" class="p-0"></label>
+                    <input asp-for="CustomerPhone" disabled class="form-control" />
+                </div>
+                <div class="mb-3 row p-1">
+                    <label asp-for="CustomerEmail" class="p-0"></label>
+                    <input asp-for="CustomerEmail" disabled class="form-control" />
+                </div>
+
+                <div class="row">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-danger form-control">Delete</button>
+
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="CustomerDetails" asp-action="Index" class="btn btn-outline-primary border form-control">
+                            Cancel
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
 
