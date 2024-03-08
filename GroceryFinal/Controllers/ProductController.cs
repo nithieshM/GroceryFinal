@@ -4,11 +4,14 @@ using GroceryFinal.DataAccess.Repository;
 using GroceryFinal.DataAccess.Repository.IRepository;
 using GroceryFinal.Model;
 using GroceryFinal.Model.ViewModel;
+using GroceryFinal.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GroceryFinal.Controllers
 {
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _productRepo;
