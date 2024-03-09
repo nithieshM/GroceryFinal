@@ -27,6 +27,7 @@ To set up the Grocery Web Application locally, follow these steps:
 2. **Database Setup**:
     - Ensure you have SQL Server installed and running.
     - Update the connection string in the `appsettings.json` file to point to your SQL Server instance.
+    - Create a new migration with the command `add-migration InitialCreate` and update the database before building running the application using `update-database`.
 
 3. **Build and Run**:
     - Open the solution in Visual Studio or your preferred IDE.
@@ -38,19 +39,9 @@ To set up the Grocery Web Application locally, follow these steps:
 
 ## Usage
 
-- **Home Page**: View a list of grocery items and navigate to different sections of the application.
+- **Login and Register**: Login and Register pages.
 - **CRUD Operations**: Add, edit, or delete grocery items as needed.
 - **Manage Relationships**: Utilize foreign key relationships to manage linked items effectively.
-
-## Contributions
-
-Contributions to the Grocery Web Application are welcome! If you'd like to contribute, please follow these guidelines:
-
-- Fork the repository.
-- Create your feature branch (`git checkout -b feature/YourFeature`).
-- Commit your changes (`git commit -am 'Add some feature'`).
-- Push to the branch (`git push origin feature/YourFeature`).
-- Create a new Pull Request.
 
 ## License
 
