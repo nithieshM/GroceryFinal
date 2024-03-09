@@ -27,7 +27,7 @@ To set up the Grocery Web Application locally, follow these steps:
 2. **Database Setup**:
     - Ensure you have SQL Server installed and running.
     - Update the connection string in the `appsettings.json` file to point to your SQL Server instance.
-    - Create a new migration with the command `add-migration InitialCreate` and update the database before building running the application using `update-database`.
+    - Create a new migration using package manager console and with the command `add-migration InitialCreate` and update the database before building running the application using `update-database`.
 
 3. **Build and Run**:
     - Open the solution in Visual Studio or your preferred IDE.
